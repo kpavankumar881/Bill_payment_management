@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill History - Bill Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>💼 BMS</h2>
+                <p>Bill Management</p>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="dashboard.html">
+                            <span class="icon">📊</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add-product.html">
+                            <span class="icon">📦</span>
+                            <span>Add Product</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customer.html">
+                            <span class="icon">👥</span>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="generate-bill.html">
+                            <span class="icon">🧾</span>
+                            <span>Generate Bill</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bill-history.html" class="active">
+                            <span class="icon">📋</span>
+                            <span>Bill History</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="user-logout">
+                <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+            </div>
+        </aside>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <h1>📋 Bill History</h1>
+                <div class="user-info">
+                    <span>Welcome, <strong id="userName">User</strong></span>
+                    <div class="user-avatar" id="userAvatar">U</div>
+                </div>
+            </nav>
+            
+            <!-- CONTENT AREA -->
+            <div class="content-area">
+                <!-- SUCCESS ALERT -->
+                <div class="alert alert-success"></div>
+                
+                <!-- BILL HISTORY TABLE -->
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Bill ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Date</th>
+                                    <th>Total Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="billHistoryBody">
+                                <tr>
+                                    <td colspan="5" class="text-center">No bills found in history</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- BILL PREVIEW SECTION -->
+                <h2 class="section-title">Bill Preview</h2>
+                <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: var(--shadow);">
+                    <div id="billPreview" class="bill-preview">
+                        <div class="empty-state">
+                            <p style="font-size: 48px; margin-bottom: 10px;">📄</p>
+                            <h3>No Bill Selected</h3>
+                            <p>Click "View" button to see bill details</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PRINT BUTTON -->
+                <button type="button" class="btn btn-warning" onclick="printBill()" style="background-color: var(--warning-color); margin-top: 20px;">🖨️ Print Selected Bill</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Bill Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>💼 BMS</h2>
+                <p>Bill Management</p>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="dashboard.html">
+                            <span class="icon">📊</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add-product.html" class="active">
+                            <span class="icon">📦</span>
+                            <span>Add Product</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customer.html">
+                            <span class="icon">👥</span>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="generate-bill.html">
+                            <span class="icon">🧾</span>
+                            <span>Generate Bill</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bill-history.html">
+                            <span class="icon">📋</span>
+                            <span>Bill History</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="user-logout">
+                <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+            </div>
+        </aside>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <h1>📦 Add Product</h1>
+                <div class="user-info">
+                    <span>Welcome, <strong id="userName">User</strong></span>
+                    <div class="user-avatar" id="userAvatar">U</div>
+                </div>
+            </nav>
+            
+            <!-- CONTENT AREA -->
+            <div class="content-area">
+                <!-- SUCCESS ALERT -->
+                <div class="alert alert-success"></div>
+                
+                <!-- ADD PRODUCT FORM -->
+                <div class="form-container">
+                    <h2 style="margin-bottom: 25px; color: var(--text-dark);">Add New Product</h2>
+                    
+                    <form id="productForm" onsubmit="addProduct(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productName">Product Name</label>
+                                <input type="text" id="productName" placeholder="e.g., Laptop, Mouse, Keyboard" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productPrice">Price (₹)</label>
+                                <input type="number" id="productPrice" placeholder="0.00" step="0.01" min="0" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="productQuantity">Quantity</label>
+                                <input type="number" id="productQuantity" placeholder="0" min="0" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">💾 Save Product</button>
+                    </form>
+                </div>
+                
+                <!-- PRODUCTS LIST -->
+                <h2 class="section-title">Products List</h2>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Price (₹)</th>
+                                    <th>Quantity</th>
+                                    <th>Date Added</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsBody">
+                                <tr>
+                                    <td colspan="6" class="text-center">No products added yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management - Bill Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>💼 BMS</h2>
+                <p>Bill Management</p>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="dashboard.html">
+                            <span class="icon">📊</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add-product.html">
+                            <span class="icon">📦</span>
+                            <span>Add Product</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customer.html" class="active">
+                            <span class="icon">👥</span>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="generate-bill.html">
+                            <span class="icon">🧾</span>
+                            <span>Generate Bill</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bill-history.html">
+                            <span class="icon">📋</span>
+                            <span>Bill History</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="user-logout">
+                <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+            </div>
+        </aside>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <h1>👥 Customer Management</h1>
+                <div class="user-info">
+                    <span>Welcome, <strong id="userName">User</strong></span>
+                    <div class="user-avatar" id="userAvatar">U</div>
+                </div>
+            </nav>
+            
+            <!-- CONTENT AREA -->
+            <div class="content-area">
+                <!-- SUCCESS ALERT -->
+                <div class="alert alert-success"></div>
+                
+                <!-- ADD CUSTOMER FORM -->
+                <div class="form-container">
+                    <h2 style="margin-bottom: 25px; color: var(--text-dark);">Add New Customer</h2>
+                    
+                    <form id="customerForm" onsubmit="addCustomer(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customerName">Customer Name</label>
+                                <input type="text" id="customerName" placeholder="e.g., John Doe" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="customerPhone">Phone Number</label>
+                                <input type="tel" id="customerPhone" placeholder="e.g., 9876543210" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customerAddress">Address</label>
+                                <textarea id="customerAddress" placeholder="e.g., 123 Main St, City, State" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">➕ Add Customer</button>
+                    </form>
+                </div>
+                
+                <!-- CUSTOMERS LIST -->
+                <h2 class="section-title">Customers List</h2>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customersBody">
+                                <tr>
+                                    <td colspan="5" class="text-center">No customers added yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Bill - Bill Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>💼 BMS</h2>
+                <p>Bill Management</p>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="dashboard.html">
+                            <span class="icon">📊</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add-product.html">
+                            <span class="icon">📦</span>
+                            <span>Add Product</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customer.html">
+                            <span class="icon">👥</span>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="generate-bill.html" class="active">
+                            <span class="icon">🧾</span>
+                            <span>Generate Bill</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bill-history.html">
+                            <span class="icon">📋</span>
+                            <span>Bill History</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="user-logout">
+                <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+            </div>
+        </aside>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <h1>🧾 Generate Bill</h1>
+                <div class="user-info">
+                    <span>Welcome, <strong id="userName">User</strong></span>
+                    <div class="user-avatar" id="userAvatar">U</div>
+                </div>
+            </nav>
+            
+            <!-- CONTENT AREA -->
+            <div class="content-area">
+                <!-- SUCCESS ALERT -->
+                <div class="alert alert-success"></div>
+                
+                <!-- BILL GENERATION CONTAINER -->
+                <div class="bill-generation-container">
+                    <!-- LEFT SECTION: FORM -->
+                    <div class="bill-form-section">
+                        <h2 style="margin-bottom: 25px; color: var(--text-dark);">Create Bill</h2>
+                        
+                        <!-- CUSTOMER SELECTION -->
+                        <div class="form-group">
+                            <label for="customerSelect">Select Customer *</label>
+                            <select id="customerSelect" required>
+                                <option value="">Select a customer</option>
+                            </select>
+                        </div>
+                        
+                        <!-- PRODUCT SELECTION -->
+                        <h3 style="margin: 25px 0 15px 0; color: var(--text-dark); font-size: 16px;">Add Products</h3>
+                        
+                        <div class="form-row" style="grid-template-columns: 1fr 1fr auto;">
+                            <div class="form-group">
+                                <label for="productSelect">Product</label>
+                                <select id="productSelect">
+                                    <option value="">Select a product</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="billQuantity">Quantity</label>
+                                <input type="number" id="billQuantity" placeholder="Qty" value="1" min="1">
+                            </div>
+                            
+                            <div style="display: flex; align-items: flex-end;">
+                                <button type="button" class="btn btn-secondary" onclick="addProductToBill(event)">Add</button>
+                            </div>
+                        </div>
+                        
+                        <!-- BILL ITEMS -->
+                        <h3 style="margin: 25px 0 15px 0; color: var(--text-dark); font-size: 16px;">Bill Items</h3>
+                        <div id="billItemsList" class="bill-items-list">
+                            <p class="text-center text-muted">No items added to bill</p>
+                        </div>
+                        
+                        <!-- BILL SUMMARY -->
+                        <div class="bill-summary">
+                            <div class="bill-summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">₹0.00</span>
+                            </div>
+                            <div class="bill-summary-row">
+                                <span>Tax (5%):</span>
+                                <span id="taxAmount">₹0.00</span>
+                            </div>
+                            <div class="bill-summary-row total">
+                                <span>Total:</span>
+                                <span id="totalAmount">₹0.00</span>
+                            </div>
+                        </div>
+                        
+                        <!-- ACTION BUTTONS -->
+                        <button type="button" class="btn btn-primary btn-block" onclick="generateBill(event)">📄 Generate Bill</button>
+                        <button type="button" class="btn btn-warning btn-block" onclick="printBill()" style="background-color: var(--warning-color); margin-top: 10px;">🖨️ Print Bill</button>
+                    </div>
+                    
+                    <!-- RIGHT SECTION: PREVIEW -->
+                    <div class="bill-preview-section">
+                        <h2 style="margin-bottom: 20px; color: var(--text-dark);">Bill Preview</h2>
+                        <div id="billPreview" class="bill-preview">
+                            <div class="empty-state">
+                                <p style="font-size: 48px; margin-bottom: 10px;">📄</p>
+                                <h3>No Bill Generated</h3>
+                                <p>Create a bill to see preview here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
