@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Bill Management System (BMS)
 
 A modern, responsive web application for managing products, customers, and generating bills. Built with vanilla HTML, CSS, and JavaScript using local storage for data persistence.
@@ -371,3 +372,7 @@ This project is open-source and free to use for educational and commercial purpo
 **Version:** 1.0
 
 Enjoy using Bill Management System! 💼
+=======
+# Bill_payment_management
+A Bill Management System is a digital platform that helps businesses generate invoices, manage customer bills, record payments, and maintain billing history in an organized database.
+>>>>>>> 4d88106744bdcebd09a28cb4e15b8a1be523b5ff
